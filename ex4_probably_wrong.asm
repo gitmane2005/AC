@@ -1,11 +1,11 @@
-data
+.data
 num: .word 7
 .text
-la t0, num
-lw a0, 0(t0)
-jal ra, POLI
-li a7, 10
-ecall
+	la t0, num
+	lw a0, 0(t0)
+	jal ra, POLI
+	li a7, 10
+	ecall
 POLI:
        addi sp, sp, -16
        sw ra, 12(sp)

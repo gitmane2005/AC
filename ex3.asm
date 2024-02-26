@@ -1,26 +1,23 @@
-data
-num: .word 7
-.text
-la t0, num
-lw a0, 0(t0)
-jal ra, POLI
-li a7, 10
-ecall
-POLI:
-       addi sp, sp, -16
-       sw ra, 12(sp)
-       sw a0, 8(sp)
-       mv t0, a0
-       jal ra, QUAD
-       mv t0, a0
-       li a0,3
-       mul s0, s0, a0
-       add a0, t0, s0
-       addi a0, a0, 1
-       lw s0, 0(sp)
-       lw ra, 4(sp)
-       addi sp, sp, 8
-       ret
-QUAD:
-       mul a0, a0, a0
-       ret
+
+sumSquare:
+	addi sp, sp, -16
+	sw ra, 12(sp)
+	sw s0, 8(sp) # guarda o valor n
+	sw s1, 4(sp) # guarda a soma dos quadrados
+	add a0, s1, x0
+	add a1, s0, x0 
+ciclo:	bge   zero, a0, fim
+	jal  square
+	addi s1, s1, s0
+	addi s0, s0, -1
+	add a0, s0, x0
+	jal x0, ciclo
+fim:	lw ra, 12(sp)
+	lw s0, 8(sp)
+	lw s1, 4(sp)
+	addi sp, sp, 16
+	jr ra 
+square:
+	mul a3 , a0, a0
+	ret 
+	
