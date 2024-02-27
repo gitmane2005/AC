@@ -1,5 +1,5 @@
 .data
-v1: .asciz "ajkhalfbubrluiaaa a a"
+v1: .asciz "a jhja ajbdf fdf"
 
 .text
 la a0, v1

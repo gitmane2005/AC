@@ -1,7 +1,8 @@
 .data 
-v1: .word 2
+v1: .word -1
 
-.text 
+.text
+
 la t0, v1
 lw a0, 0(t0)
 jal ra, count_1
